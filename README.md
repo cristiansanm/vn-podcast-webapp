@@ -10,10 +10,22 @@ In the project directory, you can run:
 
 Installs the dependencies of the project.
 
-### `yarn start`
+### `yarn dev`
 
 Runs the app in the development mode.
 Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+### `yarn dev:prod`
+
+Runs the app in the production mode.
+
+### `yarn build`
+
+Builds the app for development to the `build` folder.
+
+### `yarn build:prod`
+
+Builds the app for production to the `build` folder.
 
 ## Application Structure
 
@@ -46,3 +58,5 @@ The application uses the following libraries:
 - **redux-toolkit**: Used to manage the state of the application.
 - **react-router-dom**: Used to manage the navigation of the application.
 - **tailwindcss**: Used to style the application.
+- **rss-parser**: Used to parse the RSS feed from the podcast.
+- **xml2js**: Used to parse the XML feed from the podcast.
