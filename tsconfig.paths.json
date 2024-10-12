@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+    "jsx": "react-jsx",
+		"baseUrl": ".",
+		"paths": {
+      "@/*": ["./src/*"],
+      "@/adapters/*": ["./src/components/*"],
+      "@/assets/*": ["./src/pages/*"],
+      "@/components/*": ["src/assets/*"],
+      "@/hooks/*": ["src/forms/*"],
+      "@/models/*": ["src/providers/*"],
+      "@/modules/*": ["src/utils/*"],
+			"@/pages/*": ["src/models/*"],
+			"@/redux/*": ["src/redux/*"],
+			"@/routes/*": ["src/routes/*"],
+			"@/services/*": ["src/services/*"],
+			"@/utils/*": ["src/utils/*"]
+    },
+	},
+}
