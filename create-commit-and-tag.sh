@@ -14,7 +14,7 @@ validate_tag_name() {
 # Fetch the latest tags from the remote repository
 git fetch --tags
 
-# Find the latest tag that matches the pattern v[0-9].[0-9].[0-9]
+# Find the latest tag that matches the pattern v[0-9]*.[0-9]*.[0-9]*
 LATEST_TAG=$(git tag -l "v[0-9]*.[0-9]*.[0-9]*" | sort -V | tail -n 1)
 
 # Increment the version number
@@ -22,7 +22,23 @@ if [[ $LATEST_TAG =~ ^v([0-9]+)\.([0-9]+)\.([0-9]+)$ ]]; then
     MAJOR=${BASH_REMATCH[1]}
     MINOR=${BASH_REMATCH[2]}
     PATCH=${BASH_REMATCH[3]}
+    
+    # Increment the patch version
     PATCH=$((PATCH + 1))
+    
+    # Check if patch version needs to roll over
+    if [ $PATCH -ge 10 ]; then
+        PATCH=0
+        MINOR=$((MINOR + 1))
+    fi
+    
+    # Check if minor version needs to roll over
+    if [ $MINOR -ge 10 ]; then
+        PATCH=0
+        MINOR=0
+        MAJOR=$((MAJOR + 1))
+    fi
+    
     NEW_TAG="v$MAJOR.$MINOR.$PATCH"
 else
     NEW_TAG="v0.0.1"
