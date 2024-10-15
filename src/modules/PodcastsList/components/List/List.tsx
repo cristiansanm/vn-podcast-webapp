@@ -1,8 +1,10 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { usePodcastsListSelector } from '../../hooks';
 
 export const List: FC = () => {
   const { podcasts } = usePodcastsListSelector();
+  const navigate = useNavigate();
   return (
     <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {podcasts.length ? (
@@ -12,8 +14,7 @@ export const List: FC = () => {
               key={podcast.podcastId}
               className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 hover:cursor-pointer active:scale-95"
               onClick={() => {
-                // TODO: Add navigation to podcast details page
-                console.log({ podcast });
+                navigate(`/podcast/${podcast.podcastId}`);
               }}>
               <img
                 src={podcast.images[2].url}
