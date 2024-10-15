@@ -1,6 +1,6 @@
 import { useAppDispatch } from '@/redux/utils';
 import { PodcastEntry } from '../model';
-import { cleanPodcastsList, setPodcastsList } from '../redux/slice';
+import { cleanPodcastsList, setPodcastsList, setSearchQuery } from '../redux/slice';
 
 export const usePodcastsListActions = () => {
   const dispatch = useAppDispatch();
@@ -13,5 +13,9 @@ export const usePodcastsListActions = () => {
     dispatch(cleanPodcastsList());
   };
 
-  return { setPodcasts, cleanPodcasts };
+  const searchPodcasts = (searchQuery: string) => {
+    dispatch(setSearchQuery(searchQuery));
+  };
+
+  return { setPodcasts, cleanPodcasts, searchPodcasts };
 };

@@ -3,10 +3,18 @@ import { createSelector } from '@reduxjs/toolkit';
 
 const selectPodcastsListState = (state: RootState) => state.PODCASTS_LIST_REDUCER;
 
-const selectPodcastsList = createSelector(
-  [selectPodcastsListState],
-  (podcastsState) => podcastsState.podcasts
-);
+const selectPodcastsList = createSelector([selectPodcastsListState], (podcastsState) => {
+  if (podcastsState.searchQuery) {
+    const lowercasedQuery = podcastsState.searchQuery.toLowerCase();
+    return podcastsState.podcasts.filter(
+      (podcast) =>
+        podcast.name.toLowerCase().includes(lowercasedQuery) ||
+        podcast.author.toLowerCase().includes(lowercasedQuery) ||
+        podcast.description.toLowerCase().includes(lowercasedQuery)
+    );
+  }
+  return podcastsState.podcasts;
+});
 
 const selectIsLoadingPodcasts = createSelector(
   [selectPodcastsListState],

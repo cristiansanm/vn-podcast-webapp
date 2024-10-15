@@ -12,10 +12,12 @@ export const usePodcastsListSelector = (): {
   isLoading: boolean;
   hasError: boolean;
   errorMessage: string;
+  searchQuery: string;
 } => {
   const podcasts = useAppSelector(selectPodcastsList);
   const isLoading = useAppSelector(selectIsLoadingPodcasts);
   const hasError = useAppSelector(selectHasErrorPodcasts);
   const errorMessage = useAppSelector(selectErrorMessagePodcasts);
-  return { podcasts, isLoading, hasError, errorMessage };
+  const searchQuery = useAppSelector((state) => state.PODCASTS_LIST_REDUCER.searchQuery);
+  return { podcasts, isLoading, hasError, errorMessage, searchQuery };
 };

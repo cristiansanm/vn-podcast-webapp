@@ -12,6 +12,9 @@ const podcastsListSlice = createSlice({
     setPodcastsList(state, action: PayloadAction<PodcastEntry[]>) {
       state.podcasts = action.payload;
     },
+    setSearchQuery(state, action: PayloadAction<string>) {
+      state.searchQuery = action.payload;
+    },
     cleanPodcastsList(state) {
       state.podcasts = [];
     },
@@ -36,5 +39,5 @@ const podcastsListSlice = createSlice({
   },
 });
 
-export const { setPodcastsList, cleanPodcastsList } = podcastsListSlice.actions;
+export const { setPodcastsList, cleanPodcastsList, setSearchQuery } = podcastsListSlice.actions;
 export default podcastsListSlice;

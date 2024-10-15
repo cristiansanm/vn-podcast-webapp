@@ -1,15 +1,12 @@
 import { Provider } from 'react-redux';
-import { Header } from './pages';
-import { PodcastsList } from './modules/PodcastsList/page';
+import { RouterProvider } from 'react-router-dom';
 import { store } from './redux/store/store';
-import { Divider } from './components';
+import { router } from './routes';
 
 function App() {
   return (
     <Provider store={store}>
-      <Header />
-      <Divider size={2} />
-      <PodcastsList />
+      <RouterProvider router={router} />
     </Provider>
   );
 }
