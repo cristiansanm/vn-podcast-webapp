@@ -9,7 +9,7 @@ This project is a podcast player that fetches the podcasts from the [iTunes 100 
 
 In the project directory, you can run:
 
-### `yarn install`
+### `yarn`
 
 Installs the dependencies of the project.
 
