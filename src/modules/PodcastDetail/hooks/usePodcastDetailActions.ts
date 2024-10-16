@@ -1,7 +1,6 @@
 import { useAppDispatch } from '@/redux/utils';
 import { PodcastDetail } from '../model';
-import { setPodcastDetailProperty } from '../redux/slice';
-import { PodcastDetailState } from '../redux/state';
+import { setPodcastDetailProp } from '../redux/slice';
 
 export const usePodcastDetailActions = () => {
   const dispatch = useAppDispatch();
@@ -9,17 +8,15 @@ export const usePodcastDetailActions = () => {
   const actionSetPodcastDetailProp = ({
     prop,
     value,
-    isDetail = false,
   }: {
-    prop: keyof PodcastDetail | keyof PodcastDetailState;
-    value: PodcastDetail[keyof PodcastDetail] | PodcastDetailState[keyof PodcastDetailState];
-    isDetail?: boolean;
+    prop: keyof PodcastDetail;
+    value: PodcastDetail[keyof PodcastDetail];
   }) => {
-    dispatch(setPodcastDetailProperty({ prop, value, isDetail }));
+    dispatch(setPodcastDetailProp({ prop, value }));
   };
 
   const actionSetPodcastId = (podcastId: string) => {
-    actionSetPodcastDetailProp({ prop: 'podcastId', value: podcastId, isDetail: true });
+    actionSetPodcastDetailProp({ prop: 'podcastId', value: podcastId });
   };
 
   return {

@@ -7,8 +7,11 @@ import { UrlAudio } from '../UrlAudio';
 
 type EpisodeDetailCardProps = { episode: EpisodeDetail };
 export const EpisodeDetailCard: FC<EpisodeDetailCardProps> = ({ episode }) => {
+  const audioData = useEpisodeGetAudio(episode?.mediaAudio);
   const formattedEpisodeDescription = purifyHtml(episode?.description);
-  const { url, isLoading, hasError } = useEpisodeGetAudio(episode?.mediaAudio);
+  const url = audioData?.url ?? null;
+  const isLoading = audioData?.isLoading ?? false;
+  const hasError = audioData?.hasError ?? false;
 
   return (
     <PageTagContainer tag="section" className="col-span-1 md:col-span-3">
@@ -22,7 +25,7 @@ export const EpisodeDetailCard: FC<EpisodeDetailCardProps> = ({ episode }) => {
             dangerouslySetInnerHTML={{ __html: formattedEpisodeDescription }}
           />
         </div>
-        <UrlAudio finalUrlAudio={url} isLoading={isLoading} hasError={hasError} />
+        <UrlAudio finalUrlAudio={url ?? ''} isLoading={isLoading} hasError={hasError} />
       </div>
     </PageTagContainer>
   );

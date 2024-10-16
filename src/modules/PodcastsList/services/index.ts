@@ -40,7 +40,7 @@ export const getPodcastsList = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return rejectWithValue(error?.message);
+      return rejectWithValue((error as Error)?.message);
     }
   }
 );

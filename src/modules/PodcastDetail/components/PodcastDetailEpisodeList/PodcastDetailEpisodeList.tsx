@@ -49,7 +49,11 @@ export const PodcastDetailEpisodeList = () => {
             ))}
           </tbody>
         </table>
-      ) : null}
+      ) : (
+        <div className="bg-white p-2 rounded-lg shadow-md">
+          <p className="text-sm text-gray-500">No episodes available.</p>
+        </div>
+      )}
     </PageTagContainer>
   );
 };

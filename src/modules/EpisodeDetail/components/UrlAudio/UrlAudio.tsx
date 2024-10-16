@@ -18,5 +18,7 @@ export const UrlAudio: FC<{
         Your browser does not support the audio element.
       </video>
     </div>
-  ) : null;
+  ) : (
+    <></>
+  );
 };

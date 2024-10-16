@@ -4,13 +4,11 @@ import { CORS_PROXY, PODCAST_DETAIL_URI } from '@/services/api';
 import Parser from 'rss-parser/dist/rss-parser.min.js';
 const parser = new Parser();
 
-export async function rssParser(feedUrl: string) {
-  try {
-    const feed = await parser.parseURL(`${CORS_PROXY}${feedUrl}`);
-    return feed;
-  } catch (error) {
-    return error;
-  }
+export async function rssParser(feedUrl: string): Promise<EndpointPodcastRSSFeed> {
+  const feed = (await parser.parseURL(
+    `${CORS_PROXY}${feedUrl}`
+  )) as unknown as EndpointPodcastRSSFeed;
+  return feed;
 }
 
 export async function getPodcastEpisodes(podcastId: number): Promise<EndpointPodcastRSSFeed> {
@@ -29,21 +27,19 @@ export async function getPodcastEpisodes(podcastId: number): Promise<EndpointPod
     }
   }
 
-  try {
-    // Fetch the response from the network
-    const response = await axiosInstance.get(`${cacheKey}`);
-    const data = response.data.results[0];
-    const feedUrl = data.feedUrl;
+  // Fetch the response from the network
+  const response = await axiosInstance.get(`${cacheKey}`);
+  const data = response.data.results[0];
+  const feedUrl = data.feedUrl;
 
-    // Fetch and parse the RSS feed
-    const feed = await parser.parseURL(`${CORS_PROXY}${feedUrl}`);
+  // Fetch and parse the RSS feed
+  const feed = (await parser.parseURL(
+    `${CORS_PROXY}${feedUrl}`
+  )) as unknown as EndpointPodcastRSSFeed;
 
-    // Cache the new response
-    const cacheData = new Response(JSON.stringify({ data: feed, timestamp: new Date().getTime() }));
-    await cache.put(cacheKey, cacheData);
+  // Cache the new response
+  const cacheData = new Response(JSON.stringify({ data: feed, timestamp: new Date().getTime() }));
+  await cache.put(cacheKey, cacheData);
 
-    return feed;
-  } catch (error) {
-    return error;
-  }
+  return feed;
 }

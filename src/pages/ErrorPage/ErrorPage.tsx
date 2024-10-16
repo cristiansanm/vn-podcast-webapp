@@ -1,8 +1,7 @@
 import { Link, useRouteError } from 'react-router-dom';
 
 export default function ErrorPage() {
-  const error: { statusText?: string; message?: string } = useRouteError();
-  console.error(error);
+  const error = useRouteError() as { statusText?: string; message?: string };
 
   return (
     <div id="error-page" className="flex flex-col justify-center items-center gap-5 font-bold">

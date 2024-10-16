@@ -11,11 +11,11 @@ export const useEpisodeRefresh = ({ episodeId, id }: { episodeId: string; id: st
   const { apiGetPodcastDetail } = usePodcastDetailApiCalls();
 
   useEffect(() => {
-    if (!episodes.length && !description && !title) {
+    if (!episodes?.length && !description && !title) {
       apiGetPodcastDetail(id);
     }
-    if (episodes.length) {
-      setEpisode(episodes.find((ep) => ep.guid === episodeId));
+    if (episodes?.length) {
+      setEpisode(episodes?.find((ep) => ep.guid === episodeId) ?? null);
     }
   }, [id, episodes, description, title]);
 

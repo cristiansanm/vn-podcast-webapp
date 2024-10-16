@@ -7,8 +7,8 @@ const episodeDetailSlice = createSlice({
   name: reducerNames.EPISODE_DETAIL_REDUCER,
   initialState: EPISODE_DETAIL_INIT_STATE,
   reducers: {
-    setEpisodeDetail: (state, action: PayloadAction<EpisodeDetail>) => {
-      state = action.payload;
+    setEpisodeDetail: (_state, action: PayloadAction<EpisodeDetail>) => {
+      _state = action.payload;
     },
     clearEpisodeDetail: (_state) => {
       _state = EPISODE_DETAIL_INIT_STATE;

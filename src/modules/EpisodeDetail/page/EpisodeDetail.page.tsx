@@ -8,6 +8,7 @@ import { useEpisodeRefresh } from '../hooks';
 
 const EpisodeDetailPage: FC = () => {
   const { episodeId, id } = usePageParams();
+
   const { episode } = useEpisodeRefresh({ episodeId, id });
 
   const { isLoading } = usePodcastDetailSelector();

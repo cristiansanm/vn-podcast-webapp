@@ -11,7 +11,7 @@ export const getPodcastDetail = createAsyncThunk(
       const feed = await getPodcastEpisodes(Number(podcastId));
       return feed;
     } catch (error) {
-      return rejectWithValue(error?.message || 'Error fetching podcast details');
+      return rejectWithValue((error as Error)?.message || 'Error fetching podcast details');
     }
   }
 );

@@ -15,19 +15,34 @@ export const useEpisodeGetAudio = (mediaAudio: string) => {
   useEffect(() => {
     const fetchFinalUrl = async () => {
       try {
-        setUrlAudio((prev) => ({ ...prev, isLoading: true }));
+        setUrlAudio((prev) => ({
+          ...prev,
+          isLoading: true,
+          url: prev?.url ?? null,
+          hasError: prev?.hasError ?? false,
+        }));
         const response = await axiosInstance.get(`${CORS_PROXY}${mediaAudio}`, {
           maxRedirects: 0,
           validateStatus: (status) => status >= 200 && status < 400,
         });
         const finalUrl = response.headers['x-final-url'];
-        setUrlAudio((prev) => ({ ...prev, url: finalUrl }));
+        setUrlAudio((prev) => ({ ...prev, url: finalUrl, isLoading: false, hasError: false }));
       } catch (error) {
         console.error('Error fetching final URL:', error);
-        setUrlAudio((prev) => ({ ...prev, hasError: true }));
+        setUrlAudio((prev) => ({
+          ...prev,
+          hasError: true,
+          isLoading: false,
+          url: prev?.url ?? null,
+        }));
         return error;
       } finally {
-        setUrlAudio((prev) => ({ ...prev, isLoading: false }));
+        setUrlAudio((prev) => ({
+          ...prev,
+          isLoading: false,
+          url: prev?.url ?? null,
+          hasError: prev?.hasError ?? false,
+        }));
       }
     };
 

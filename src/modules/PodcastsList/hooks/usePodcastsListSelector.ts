@@ -17,7 +17,7 @@ export const usePodcastsListSelector = (): {
   const podcasts = useAppSelector(selectPodcastsList);
   const isLoading = useAppSelector(selectIsLoadingPodcasts);
   const hasError = useAppSelector(selectHasErrorPodcasts);
-  const errorMessage = useAppSelector(selectErrorMessagePodcasts);
-  const searchQuery = useAppSelector((state) => state.PODCASTS_LIST_REDUCER.searchQuery);
+  const errorMessage = useAppSelector(selectErrorMessagePodcasts) ?? '';
+  const searchQuery = useAppSelector((state) => state.PODCASTS_LIST_REDUCER.searchQuery) ?? '';
   return { podcasts, isLoading, hasError, errorMessage, searchQuery };
 };

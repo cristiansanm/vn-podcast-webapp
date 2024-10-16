@@ -11,7 +11,7 @@ export const PodcastDetailCard: FC<PodcastDetailCardProps> = ({ fromEpisodeDetai
   const { podcastDetail } = usePodcastDetailSelector();
   const { goBack } = useNavigationMethods();
   const injectGoBack = fromEpisodeDetail ? { onClick: goBack } : {};
-  const formattedDescription = purifyHtml(podcastDetail.description);
+  const formattedDescription = purifyHtml(podcastDetail.description || '');
   return (
     <PageTagContainer tag="article" className="col-span-1 md:col-span-1">
       <div className="bg-white p-4 rounded-lg shadow-md">
