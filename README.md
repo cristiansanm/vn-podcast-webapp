@@ -60,3 +60,4 @@ The application uses the following libraries:
 - **tailwindcss**: Used to style the application.
 - **rss-parser**: Used to parse the RSS feed from the podcast.
 - **xml2js**: Used to parse the XML feed from the podcast.
+- **dompurify**: Used to sanitize the HTML content from the podcast.

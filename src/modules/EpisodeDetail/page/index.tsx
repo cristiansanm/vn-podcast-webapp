@@ -1,2 +1,2 @@
-import EpisodeDetail from './EpisodeDetail.page';
-export default EpisodeDetail;
+import EpisodeDetailPage from './EpisodeDetail.page';
+export default EpisodeDetailPage;

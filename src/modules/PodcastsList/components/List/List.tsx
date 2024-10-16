@@ -1,3 +1,4 @@
+import { usePodcastDetailActions } from '@/modules/PodcastDetail/hooks';
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { usePodcastsListSelector } from '../../hooks';
@@ -5,6 +6,7 @@ import { usePodcastsListSelector } from '../../hooks';
 export const List: FC = () => {
   const { podcasts } = usePodcastsListSelector();
   const navigate = useNavigate();
+  const { actionSetPodcastId } = usePodcastDetailActions();
   return (
     <section className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
       {podcasts.length ? (
@@ -14,6 +16,7 @@ export const List: FC = () => {
               key={podcast.podcastId}
               className="bg-white p-4 rounded-lg shadow-md flex flex-col items-center transition-transform transform hover:scale-105 hover:cursor-pointer active:scale-95"
               onClick={() => {
+                actionSetPodcastId(podcast.podcastId);
                 navigate(`/podcast/${podcast.podcastId}`);
               }}>
               <img

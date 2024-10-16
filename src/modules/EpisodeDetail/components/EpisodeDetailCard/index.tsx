@@ -1,0 +1,1 @@
+export { EpisodeDetailCard } from './EpisodeDetailCard';
