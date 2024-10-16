@@ -2,6 +2,9 @@
 
 This project is a podcast player that fetches the podcasts from the [iTunes 100 most listened podcast](https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json). The application is built using React, Redux, and TailwindCSS.
 
+![Podcast Player Demo](./src/assets/navigation_detail.gif)
+![Podcast Searcher Demo](./src/assets/search.gif)
+
 ## Available Scripts
 
 In the project directory, you can run:
