@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "vite",
     "dev:prod": "vite --mode production",
-    "build": "tsc -b && vite build --mode development",
-    "build:prod": "tsc -b && vite build --mode production",
+    "build": "rm -rf ./dist && tsc -b && vite build --mode development",
+    "build:prod": "rm -rf ./dist && tsc -b && vite build --mode production",
+    "preview:dev": "yarn build && vite preview --port 8080",
+    "preview:prod": "yarn build:prod && vite preview --port 8081",
     "lint": "eslint .",
-    "preview": "vite preview",
     "git:commit-tag": "./create-commit-and-tag.sh",
     "test": "vitest"
   },

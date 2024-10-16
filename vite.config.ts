@@ -67,6 +67,7 @@ export default defineConfig(({ mode }) => {
           manualChunks: isProduction ? undefined : undefined, // Optionally concatenate assets
         },
       },
+      outDir: 'dist',
     },
   };
 });

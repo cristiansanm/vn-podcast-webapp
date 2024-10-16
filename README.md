@@ -13,6 +13,14 @@ In the project directory, you can run:
 
 Installs the dependencies of the project.
 
+### `yarn preview:dev`
+
+Runs an app preview with development build folder, including minimizing the assets.
+
+### `yarn preview:prod`
+
+Runs an app preview with production build folder, including minimized and optimized assets.
+
 ### `yarn dev`
 
 Runs the app in the development mode.
@@ -24,11 +32,11 @@ Runs the app in the production mode.
 
 ### `yarn build`
 
-Builds the app for development to the `build` folder.
+Builds the app for development to the `dist` folder.
 
 ### `yarn build:prod`
 
-Builds the app for production to the `build` folder.
+Builds the app for production to the `dist` folder.
 
 ### `yarn test`
 
@@ -48,7 +56,7 @@ The application is based on clean architecture principles combined with modular 
 
 - **Main Page (PodcastList)**: Contains the podcast list for the first 100 podcasts.
 - **Podcast Detail Page (PodcastDetail)**: Contains the podcast details for a specific podcast.
-- **Podcast Player (PodcastPlayer)**: Contains the podcast player for a specific podcast.
+- **Podcast Player (PodcastPlayer)**: Contains the podcast player for a specific podcast episode.
 
 Each module contains the following structure:
 
