@@ -5,6 +5,10 @@ This project is a podcast player that fetches the podcasts from the [iTunes 100 
 ![Podcast Player Demo](./src/assets/navigation_detail.gif)
 ![Podcast Searcher Demo](./src/assets/search.gif)
 
+## IMPORTANT
+
+The application is using CORS_ANYWHERE to fetch the data from the iTunes API. The application is using the free version of CORS_ANYWHERE, so before the first launch, go to the [CORS_ANYWHERE](https://cors-anywhere.herokuapp.com/corsdemo) page and click on the button to enable the CORS proxy. After that, the application will be able to fetch the data from the iTunes API and the RSS pages.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -15,7 +19,7 @@ Installs the dependencies of the project.
 
 ### `yarn preview:dev`
 
-Runs an app preview with development build folder, including minimizing the assets.
+Runs an app preview with development build folder, without minimizing the assets.
 
 ### `yarn preview:prod`
 
@@ -44,11 +48,11 @@ Launches the test runner in the interactive watch mode.
 
 #### Unit tests
 
-The unit tests are located in the `__tests__` folder in the module that is going to be tested. The unit tests are written using Jest and React Testing Library.
+The unit tests are located in the `__tests__` folder in the module that is going to be tested. The unit tests are written using Vitest and React Testing Library.
 
 #### Integration tests
 
-The integration tests are located in the `__tests__` folder in the module that is going to be tested. The integration tests are written using Jest and React Testing Library.
+The integration tests are located in the `__tests__` folder in the module that is going to be tested. The integration tests are written using Vitest and React Testing Library.
 
 ## Application Structure
 
@@ -84,10 +88,6 @@ The application uses the following libraries:
 - **rss-parser**: Used to parse the RSS feed from the podcast.
 - **xml2js**: Used to parse the XML feed from the podcast.
 - **dompurify**: Used to sanitize the HTML content from the podcast.
-
-## IMPORTANT
-
-The application is using CORS_ANYWHERE to fetch the data from the iTunes API. The application is using the free version of CORS_ANYWHERE, so the application may not work if the limit of the free version is reached. If the application is not working at first launch, go to the [CORS_ANYWHERE](https://cors-anywhere.herokuapp.com/corsdemo) page and click on the button to enable the CORS proxy.
 
 ## License
 
