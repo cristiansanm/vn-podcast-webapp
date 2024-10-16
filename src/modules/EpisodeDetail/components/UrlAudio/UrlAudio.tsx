@@ -13,7 +13,7 @@ export const UrlAudio: FC<{
   }
   return finalUrlAudio ? (
     <div className="w-full">
-      <video controls className="w-full h-16">
+      <video role="tree" controls className="w-full h-16">
         <source src={finalUrlAudio} type="audio/mpeg" />
         Your browser does not support the audio element.
       </video>

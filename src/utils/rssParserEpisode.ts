@@ -2,7 +2,6 @@ import { EndpointPodcastRSSFeed } from '@/modules/PodcastDetail/model';
 import { axiosInstance, CACHE_PODCAST_LIST_KEY, cacheIsExpired, SavedPodcast } from '@/services';
 import { CORS_PROXY, PODCAST_DETAIL_URI } from '@/services/api';
 import Parser from 'rss-parser/dist/rss-parser.min.js';
-import { compress, decompress } from 'compress-json';
 const parser = new Parser();
 
 export async function rssParser(feedUrl: string) {
@@ -37,7 +36,7 @@ export async function getPodcastEpisodes(podcastId: number): Promise<EndpointPod
     const feedUrl = data.feedUrl;
 
     // Fetch and parse the RSS feed
-    const feed = await parser.parseURL(feedUrl);
+    const feed = await parser.parseURL(`${CORS_PROXY}${feedUrl}`);
 
     // Cache the new response
     const cacheData = new Response(JSON.stringify({ data: feed, timestamp: new Date().getTime() }));

@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# VN Podcast Player
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a podcast player that fetches the podcasts from the [iTunes 100 most listened podcast](https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json). The application is built using React, Redux, and TailwindCSS.
 
 ## Available Scripts
 
@@ -26,6 +26,18 @@ Builds the app for development to the `build` folder.
 ### `yarn build:prod`
 
 Builds the app for production to the `build` folder.
+
+### `yarn test`
+
+Launches the test runner in the interactive watch mode.
+
+#### Unit tests
+
+The unit tests are located in the `__tests__` folder in the module that is going to be tested. The unit tests are written using Jest and React Testing Library.
+
+#### Integration tests
+
+The integration tests are located in the `__tests__` folder in the module that is going to be tested. The integration tests are written using Jest and React Testing Library.
 
 ## Application Structure
 
@@ -61,3 +73,11 @@ The application uses the following libraries:
 - **rss-parser**: Used to parse the RSS feed from the podcast.
 - **xml2js**: Used to parse the XML feed from the podcast.
 - **dompurify**: Used to sanitize the HTML content from the podcast.
+
+## IMPORTANT
+
+The application is using CORS_ANYWHERE to fetch the data from the iTunes API. The application is using the free version of CORS_ANYWHERE, so the application may not work if the limit of the free version is reached. If the application is not working at first launch, go to the [CORS_ANYWHERE](https://cors-anywhere.herokuapp.com/corsdemo) page and click on the button to enable the CORS proxy.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
