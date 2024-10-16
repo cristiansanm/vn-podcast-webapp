@@ -19,7 +19,26 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    "jsx": "react-jsx",
+
+    /* Paths */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/adapters/*": ["./src/adapters/*"],
+      "@/assets/*": ["./src/assets/*"],
+      "@/components/*": ["src/components/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/models/*": ["src/providers/*"],
+      "@/modules/*": ["src/modules/*"],
+      "@/pages/*": ["src/pages/*"],
+      "@/redux/*": ["src/redux/*"],
+      "@/routes/*": ["src/routes/*"],
+      "@/services/*": ["src/services/*"],
+      "@/utils/*": ["src/utils/*"]
+    }
   },
   "include": ["src"]
 }
